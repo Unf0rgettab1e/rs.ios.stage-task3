@@ -5,7 +5,11 @@
 #pragma mark - First
 
 -(NSString *)monthNameBy:(NSUInteger)monthNumber {
-    return nil;
+    if(monthNumber == 0 || monthNumber > 12)
+        return nil;
+    NSDateFormatter *tempDateFormatter = [NSDateFormatter new];
+    NSString *nameMonthByNumber = [tempDateFormatter monthSymbols][monthNumber - 1];
+    return nameMonthByNumber;
 }
 
 #pragma mark - Second
