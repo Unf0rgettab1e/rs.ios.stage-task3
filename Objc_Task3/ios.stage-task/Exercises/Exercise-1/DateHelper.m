@@ -15,7 +15,10 @@
 #pragma mark - Second
 
 - (long)dayFromDate:(NSString *)date {
-    return 0;
+    NSDateFormatter *inputDateForm = [NSDateFormatter new];
+    inputDateForm.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z";
+    NSInteger result = [[NSCalendar currentCalendar] component:NSCalendarUnitDay fromDate:[inputDateForm dateFromString:date]];
+    return result;
 }
 
 #pragma mark - Third
